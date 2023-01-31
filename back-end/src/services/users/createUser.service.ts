@@ -1,41 +1,44 @@
-import { users } from "../../database";
-
-import { IUserCreate, IUser } from "../../interfaces/user";
-
+import { IUserCreate } from "../../interfaces/user";
+import { hash } from "bcrypt"
 import { v4 as uuidv4 } from "uuid"
 import { AppError } from "../../errors/appError";
+import { AppDataSource } from "../../data-source";
+import { User } from "../../entities/user.entity";
 
-const userCreateService = ({full_name, email, telephone}: IUserCreate) => {
+const createUserService = async({full_name, email, telephone, password}: IUserCreate) => {
 
-    // verificação de email já em uso por outro usuário
+    if(!full_name || !email || !telephone || !password){
+        throw new AppError ('Some data is missings')
+    }
+
+    if(telephone.length !== 11){
+        throw new AppError('Telephone must contain 11 characters.')
+    }
+
+    const userRepository = AppDataSource.getRepository(User) 
+
+    const users = await userRepository.find()
+
     const emailAlreadyExists = users.find(user => user.email === email)
 
-    // se já está em uso, invocamos um Error nativo do JS mesmo
     if (emailAlreadyExists) {
         throw new AppError("Email already exists!")
     }
 
-    // se não, criamos um novo usuário no modelo da interface IUser,
-        // usando os parâmetros que vamos receber lá do controller
-    
-    const newDate = new Date()
+    const hashedPassword = await hash(password, 10)
 
-    
-
-    const newUser: IUser = {
-        id: uuidv4(),
+    const newUser = {
         full_name,
         email,
         telephone,
-        registration_date: newDate,
+        password: hashedPassword
     }
+    
+    const createdUser = userRepository.create(newUser)
+    await userRepository.save(createdUser)
 
-    // adicionando o novo usuário na database
-    users.push(newUser)
-
-    // retornamos o objeto do novo usuário de volta para o controller
-    return newUser
+    return createdUser
 
 }
 
-export default userCreateService
+export default createUserService

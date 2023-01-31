@@ -2,12 +2,22 @@ export interface IUser {
     id: string;
     full_name: string;
     email: string;
-    telephone: number;
-    registration_date: Date;
+    telephone: string;
+    created_at: Date;
+    updated_at: Date;
+    password: string
 }
 
 export interface IUserCreate {
     full_name: string;
     email: string;
-    telephone: number;
+    telephone: string;
+    password: string;
+}
+
+export interface IUserUpdate {
+    full_name?: string;
+    email?: string;
+    password?: string;
+    telephone?: string;
 }

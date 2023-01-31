@@ -1,7 +1,12 @@
-import { users } from "../../database";
+import { AppDataSource } from "../../data-source"
+import { User } from "../../entities/user.entity"
+import { IUser } from "../../interfaces/user"
 
-// a função simplesmente retorna o array users
-const userListService = () => {
+const userListService = async () => {
+
+    const userRepository = AppDataSource.getRepository(User)
+
+    const users: IUser[] = await userRepository.find()
 
     return users
 }
