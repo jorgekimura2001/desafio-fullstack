@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import {
   createUserController,
+  deleteUserController,
   listRetrieveUserController,
   listUsersController,
   updateUserController,
@@ -17,6 +18,7 @@ const userRoutes = () => {
     routes.get('/', listUsersController)
     routes.get('/:id', ensureAuthMiddleware, ensureUserMiddleware, listRetrieveUserController)
     routes.patch('/:id', ensureAuthMiddleware, ensureUserMiddleware, updateUserController)
+    routes.delete('/:id', ensureAuthMiddleware, ensureUserMiddleware, deleteUserController)
 
     return routes
 }

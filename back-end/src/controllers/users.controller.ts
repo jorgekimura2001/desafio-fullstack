@@ -4,6 +4,7 @@ import listUsersService from "../services/users/listUsers.service";
 import listRetrieveUserService from "../services/users/listRetrieveUser.service";
 import createUserService from "../services/users/createUser.service";
 import updateUserService from "../services/users/updateUser.service";
+import deleteUserService from "../services/users/deleteUser.service";
 
 export const createUserController = async (req: Request, res: Response) => {
   const { full_name, email, telephone, password } = req.body;
@@ -40,3 +41,9 @@ export const updateUserController = async (req: Request, res: Response) => {
 
   return res.json(instanceToPlain(user));
 };
+
+export const deleteUserController = async(req: Request, res: Response) => {
+  const { id } = req.params;
+  await deleteUserService(id)
+  return res.status(204).json()
+}
