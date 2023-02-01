@@ -3,3 +3,9 @@ export interface IContactCreate {
     email: string;
     telephone: string;
 }
+
+export interface IContactUpdate {
+    full_name?: string;
+    email?: string;
+    telephone?: string;
+}

@@ -10,12 +10,12 @@ const listContactsService = async(idUser: string) => {
 
     const user = await userRepository.findOneBy({id: idUser})
 
-    const contacts = contactRepository.find({
+    const contacts = await contactRepository.find({
         where:{
             user: {
                 id: user!.id
             }
-        }
+        },
     })
 
     return contacts

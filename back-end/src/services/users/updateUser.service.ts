@@ -16,7 +16,7 @@ const updateUserService = async (data: IUserUpdate, id: string) => {
       throw new AppError("User not found", 404);
     }
 
-    if (data.telephone?.length !== 11) {
+    if (data.telephone && data.telephone.length !== 11) {
       throw new AppError("Telephone must contain 11 characters.");
     }
 
