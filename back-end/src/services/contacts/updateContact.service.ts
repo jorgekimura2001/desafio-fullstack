@@ -1,4 +1,4 @@
-import { AppDataSource } from "../../data-source";
+import AppDataSource from "../../data-source";
 import { Contact } from "../../entities/contact.entity";
 import { AppError } from "../../errors/appError";
 import { IContactUpdate } from "../../interfaces/contacts";

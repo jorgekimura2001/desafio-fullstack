@@ -1,7 +1,7 @@
 import { ILogin } from "../../interfaces/sessions"
 import { compare } from "bcrypt"
 import jwt from 'jsonwebtoken'
-import { AppDataSource } from "../../data-source"
+import AppDataSource  from "../../data-source"
 import { User } from "../../entities/user.entity"
 import { AppError } from "../../errors/appError"
 
@@ -16,8 +16,6 @@ const loginSessionService = async({email, password}: ILogin) => {
     const users = await userRepository.find()
 
     const user = users.find(user => user.email === email)
-
-    
 
     if(!user){
         throw new AppError('Invalid email or password', 403)
@@ -37,11 +35,8 @@ const loginSessionService = async({email, password}: ILogin) => {
             subject: user.id 
         }
     )
-    
-    // console.log({user, token})
-
+   
     return {token, user}
-    
 
 }
 

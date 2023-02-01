@@ -1,7 +1,7 @@
 import { IUserCreate } from "../../interfaces/users";
 import { hash } from "bcrypt";
 import { AppError } from "../../errors/appError";
-import { AppDataSource } from "../../data-source";
+import AppDataSource from "../../data-source";
 import { User } from "../../entities/user.entity";
 
 const createUserService = async ({
