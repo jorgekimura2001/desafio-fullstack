@@ -84,4 +84,113 @@ POST -> /users - FORMATO DA REQUISIÇÃO - Faltando campos
 }
 ```
 
+<h2 align='center'> Listagem de Usuários </h2>
+
+``
+GET -> /users - FORMATO DA REQUISIÇÃO
+``
+
+Sem corpo da requisição - A aplicação ficará responsável em buscar todos os usuários.
+
+``FORMATO DA RESPOSTA - STATUS 200 - OK``
+
+```json
+[
+	{
+		"id": "38bcd026-bb3c-4bea-a225-c92a5bae891e",
+		"full_name": "Jorge Eik",
+		"email": "tester@gmail.com",
+		"telephone": "21912345670",
+		"created_at": "2023-01-31T19:46:53.911Z",
+		"updated_at": "2023-02-01T17:05:20.309Z",
+		"contacts": [
+			{
+				"id": "9635e0dd-f3a6-448c-bd2b-87a981c60b9b",
+				"full_name": "Lorenzo Kimura",
+				"email": "lorenzo.kimura@gmail.com",
+				"telephone": "41912345678",
+				"created_at": "2023-02-01T13:07:14.997Z",
+				"updated_at": "2023-02-01T17:06:01.354Z"
+			}
+		]
+	},
+	{
+		"id": "28cb0a18-6959-4dc4-abeb-b7173329aa46",
+		"full_name": "Lorenzo Kimura",
+		"email": "tester23@gmail.com",
+		"telephone": "41912345678",
+		"created_at": "2023-02-01T13:08:27.629Z",
+		"updated_at": "2023-02-01T13:08:27.629Z",
+		"contacts": []
+	}
+]
+```
+
+### Endpoints que precisam de autenticação
+Rotas que necessitam de autorização deve ser informado no cabeçalho da requisição o campo "Authorization", dessa forma: 
+
+> Authorization: Bearer {token}
+
+Após o usuário estar logado, ele deve conseguir acessar as informações sem problemas.
+
+<h2 align='center'> Listagem de Usuário </h2>
+
+``
+GET -> /users/<uuid:user_id> - FORMATO DA REQUISIÇÃO
+``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 200 - OK``
+
+```json
+{
+	"id": "38bcd026-bb3c-4bea-a225-c92a5bae891e",
+	"full_name": "Jorge Eik",
+	"email": "tester@gmail.com",
+	"telephone": "21912345670",
+	"created_at": "2023-01-31T19:46:53.911Z",
+	"updated_at": "2023-02-01T17:05:20.309Z",
+	"contacts": [
+		{
+			"id": "9635e0dd-f3a6-448c-bd2b-87a981c60b9b",
+			"full_name": "Lorenzo Kimura",
+			"email": "lorenzo.kimura@gmail.com",
+			"telephone": "41912345678",
+			"created_at": "2023-02-01T13:07:14.997Z",
+			"updated_at": "2023-02-01T17:06:01.354Z"
+		}
+	]
+}
+```
+
+<h2 align='center'> Possíveis Erros </h2>
+
+``GET -> api/users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Outro usuário``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "You don't have permission."
+}
+```
+
+<br>
+
+``GET -> api/users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Sem token``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "Invalid token"
+}
+```
+
+
 
