@@ -705,4 +705,4 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 ```
 
 ##
-Elaborado por Jorge Kimura
+Elaborado com ❤ por Jorge Kimura
