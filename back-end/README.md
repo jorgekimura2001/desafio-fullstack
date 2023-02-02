@@ -213,7 +213,7 @@ Rotas que necessitam de autorização deve ser informado no cabeçalho da requis
 
 Após o usuário estar logado, ele deve conseguir acessar as informações sem problemas.
 
-<h2 align='center'> Listagem de Usuário </h2>
+<h2 align='center'> Listagem de Usuário Específico </h2>
 
 ``
 GET -> /users/<uuid:user_id> - FORMATO DA REQUISIÇÃO
@@ -485,7 +485,7 @@ POST -> /contacts - FORMATO DA REQUISIÇÃO - Faltando campos
 
 ``GET -> /contacts - FORMATO DA REQUISIÇÃO``
 
-Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar os contatos do usuário logado, caso o usuário não possua é retornado um array vazio - [].
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar os contatos do usuário logado, caso o usuário não possua é retornado um array vazio - [ ].
 
 ``FORMATO DA RESPOSTA - STATUS 200 - OK``
 
@@ -511,5 +511,64 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 ```
 
 <h2 align='center'> Possíveis Erros </h2>
+
+``GET -> /contacts - FORMATO DA REQUISIÇÃO - Sem token``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar os contatos do usuário logado, caso o usuário não possua é retornado um array vazio - [ ].
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "Invalid token"
+}
+```
+
+<h2 align='center'> Listagem de Contato Específico do Usuário </h2>
+
+``GET -> /contacts/<uuid:contact_id> - FORMATO DA REQUISIÇÃO``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o contato que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 200 - OK``
+
+```json
+{
+	"id": "9635e0dd-f3a6-448c-bd2b-87a981c60b9b",
+	"full_name": "Lorenzo Kimura",
+	"email": "lorenzo.kimura@gmail.com",
+	"telephone": "41912345678",
+	"created_at": "2023-02-01T13:07:14.997Z",
+	"updated_at": "2023-02-01T17:06:01.354Z"
+}
+```
+
+<h2 align='center'> Possíveis Erros </h2>
+
+``GET -> /contacts/<uuid:contact_id> - FORMATO DA REQUISIÇÃO - Outro usuário sem ser o dono``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o contato que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 404 - NOT FOUND``
+
+```json
+{
+	"message": "Contact not found."
+}
+```
+
+<br>
+
+``GET -> /contacts/<uuid:contact_id> - FORMATO DA REQUISIÇÃO - Sem token``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o contato que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "Invalid token"
+}
+```
 
 
