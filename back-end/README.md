@@ -481,6 +481,35 @@ POST -> /contacts - FORMATO DA REQUISIÇÃO - Faltando campos
 }
 ```
 
+<h2 align='center'> Listagem de Contatos do Usuário </h2>
 
+``GET -> /contacts - FORMATO DA REQUISIÇÃO``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar os contatos do usuário logado, caso o usuário não possua é retornado um array vazio - [].
+
+``FORMATO DA RESPOSTA - STATUS 200 - OK``
+
+```json
+[
+	{
+		"id": "9635e0dd-f3a6-448c-bd2b-87a981c60b9b",
+		"full_name": "Lorenzo Kimura",
+		"email": "lorenzo.kimura@gmail.com",
+		"telephone": "41912345678",
+		"created_at": "2023-02-01T13:07:14.997Z",
+		"updated_at": "2023-02-01T17:06:01.354Z"
+	},
+	{
+		"id": "70364c94-de41-4455-b019-4a18b38aeb48",
+		"full_name": "Kimura",
+		"email": "teste@gmail.com",
+		"telephone": "41912345678",
+		"created_at": "2023-02-02T00:40:44.997Z",
+		"updated_at": "2023-02-02T00:40:44.997Z"
+	}
+]
+```
+
+<h2 align='center'> Possíveis Erros </h2>
 
 
