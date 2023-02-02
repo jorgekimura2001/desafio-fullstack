@@ -254,4 +254,41 @@ PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO
 }
 ```
 
+<h2 align = "center"> Deleção de Usuário </h2>
+
+``DELETE -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 204 - NO CONTENT``
+
+Sem corpo da resposta, porém o usuário foi deletado.
+
+<h2 align='center'> Possíveis Erros </h2>
+
+``DELETE -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Outro usuário``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "You don't have permission."
+}
+```
+
+<br>
+
+``DELETE -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Sem token``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "Invalid token"
+}
+```
 
