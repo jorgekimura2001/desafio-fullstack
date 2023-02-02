@@ -84,6 +84,65 @@ POST -> /users - FORMATO DA REQUISIÇÃO - Faltando campos
 }
 ```
 
+<h2 align='center'> Login de Usuários </h2>
+
+``
+POST -> /login - FORMATO DA REQUISIÇÃO
+``
+
+```json
+{
+	"email": "tester@gmail.com",
+	"password": "123456"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 200 - OK``
+
+```json
+{
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzUyOTgxOTQsImV4cCI6MTY3NTM4NDU5NCwic3ViIjoiMzhiY2QwMjYtYmIzYy00YmVhLWEyMjUtYzkyYTViYWU4OTFlIn0.uwQQeR2i8ARMFeWZG5tU_GNkmnmFZcY-kGaTJMXWY0s",
+	"user": {
+		"id": "38bcd026-bb3c-4bea-a225-c92a5bae891e",
+		"full_name": "Jorge Eik",
+		"email": "tester@gmail.com",
+		"telephone": "21912345670",
+		"created_at": "2023-01-31T19:46:53.911Z",
+		"updated_at": "2023-02-02T00:31:09.593Z",
+		"contacts": [
+			{
+				"id": "9635e0dd-f3a6-448c-bd2b-87a981c60b9b",
+				"full_name": "Lorenzo Kimura",
+				"email": "lorenzo.kimura@gmail.com",
+				"telephone": "41912345678",
+				"created_at": "2023-02-01T13:07:14.997Z",
+				"updated_at": "2023-02-01T17:06:01.354Z"
+			}
+		]
+	}
+}
+```
+
+<h2 align='center'> Possíveis Erros </h2>
+
+``
+POST -> /login - FORMATO DA REQUISIÇÃO - Faltando campos
+``
+
+```json
+{
+	"email": "tester23@gmail.com",
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 400 - BAD REQUEST``
+
+```json
+{
+	"message": "Email and password is required!"
+}
+```
+
 <h2 align='center'> Listagem de Usuários </h2>
 
 ``
