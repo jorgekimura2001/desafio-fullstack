@@ -257,7 +257,7 @@ PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO
 <br>
 
 ``
-PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Faltando campos
+PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Faltando campos ou adicionando outros
 ``
 
 ```json
@@ -266,11 +266,11 @@ PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Faltando campos
 }
 ```
 
-``FORMATO DA RESPOSTA - STATUS 400 - BAD REQUEST``
+``FORMATO DA RESPOSTA - STATUS 403 - FORBIDDEN``
 
 ```json
 {
-	"message": "Some data is missings"
+	"message": "Just full_name/email/password/telephone can be updated"
 }
 ```
 
