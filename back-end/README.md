@@ -84,6 +84,27 @@ POST -> /users - FORMATO DA REQUISIÇÃO - Faltando campos
 }
 ```
 
+<br>
+
+``POST -> /users - FORMATO DA REQUISIÇÃO - Telefone com mais ou menos digitos que 11``
+
+```json
+{
+	"full_name": "Kimura",
+	"email": "teste@gmail.com",
+	"telephone": "419123456789",
+	"password": "123456"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 400 - BAD REQUEST``
+
+```json
+{
+	"message": "Telephone must contain 11 characters."
+}
+```
+
 <h2 align='center'> Login de Usuários </h2>
 
 ``
@@ -370,4 +391,74 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 	"message": "Invalid token"
 }
 ```
+
+<h2 align='center'> Criação de Contatos </h2>
+
+``
+POST -> /contacts - FORMATO DA REQUISIÇÃO
+``
+
+```json
+{
+	"full_name": "Kimura",
+	"email": "teste@gmail.com",
+	"telephone": "41912345678"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 201 - CREATED``
+
+```json
+{
+	"userId": "38bcd026-bb3c-4bea-a225-c92a5bae891e",
+	"id": "70364c94-de41-4455-b019-4a18b38aeb48",
+	"full_name": "Kimura",
+	"email": "teste@gmail.com",
+	"telephone": "41912345678",
+	"created_at": "2023-02-02T00:40:44.997Z",
+	"updated_at": "2023-02-02T00:40:44.997Z"
+}
+```
+
+<h2 align='center'> Possíveis Erros </h2>
+
+``
+POST -> /contacts - FORMATO DA REQUISIÇÃO - Faltando campos 
+``
+
+```json
+{
+	"full_name": "Kimura",
+	"email": "teste@gmail.com"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 400 - BAD REQUEST``
+
+```json
+{
+	"message": "Some data is missings"
+}
+```
+
+<br>
+
+``POST -> /contacts - FORMATO DA REQUISIÇÃO - Telefone com mais ou menos digitos que 11``
+
+```json
+{
+	"full_name": "Kimura",
+	"email": "teste@gmail.com",
+	"telephone": "419123456789"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 400 - BAD REQUEST``
+
+```json
+{
+	"message": "Telephone must contain 11 characters."
+}
+```
+
 
