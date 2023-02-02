@@ -461,4 +461,26 @@ POST -> /contacts - FORMATO DA REQUISIÇÃO - Faltando campos
 }
 ```
 
+<br>
+
+``POST -> /contacts - FORMATO DA REQUISIÇÃO - Sem token``
+
+```json
+{
+	"full_name": "Kimura",
+	"email": "teste@gmail.com",
+	"telephone": "41912345678"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "Invalid token"
+}
+```
+
+
+
 
