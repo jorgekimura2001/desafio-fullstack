@@ -571,4 +571,99 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 }
 ```
 
+<h2 align='center'> Atualização de Contato Específico do Usuário </h2>
+
+``PATCH -> /contacts/<uuid:contact_id> - FORMATO DA REQUISIÇÃO``
+
+```json
+{
+	"full_name": "Renato Augusto"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 200 - OK``
+
+```json
+{
+	"id": "70364c94-de41-4455-b019-4a18b38aeb48",
+	"full_name": "Renato Augusto",
+	"email": "teste@gmail.com",
+	"telephone": "41912345678",
+	"created_at": "2023-02-02T00:40:44.997Z",
+	"updated_at": "2023-02-02T01:07:14.958Z"
+}
+```
+
+<h2 align='center'> Possíveis Erros </h2>
+
+``PATCH -> /contacts/<uuid:contact_id> - FORMATO DA REQUISIÇÃO - Outro usuário sem ser o dono``
+
+```json
+{
+	"full_name": "Renato Augusto"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 404 - NOT FOUND``
+
+```json
+{
+	"message": "Contact not found."
+}
+```
+
+<br>
+
+``PATCH -> /contacts/<uuid:contact_id> - FORMATO DA REQUISIÇÃO - Sem token``
+
+```json
+{
+	"full_name": "Renato Augusto"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "Invalid token"
+}
+```
+
+<br>
+
+``PATCH -> /contacts/<uuid:contact_id> - FORMATO DA REQUISIÇÃO - Faltando campos ou adicionando outros``
+
+```json
+{
+	"batata": "123"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 403 - FORBIDDEN``
+
+```json
+{
+	"message": "Just full_name/email/telephone can be updated"
+}
+```
+
+<br>
+
+``PATCH -> /contacts/<uuid:contact_id> - FORMATO DA REQUISIÇÃO - Telefone com mais ou menos digitos que 11``
+
+```json
+{
+	"telephone": "123456789101"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 400 - BAD REQUEST``
+
+```json
+{
+	"message": "Telephone must contain 11 characters."
+}
+```
+
 
