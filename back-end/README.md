@@ -666,4 +666,43 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 }
 ```
 
+<h2 align = "center"> Deleção de Contato Específico do Usuário </h2>
 
+``DELETE -> /contacts/<uuid:contact_id>/ - FORMATO DA REQUISIÇÃO``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o contato que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 204 - NO CONTENT``
+
+Sem corpo da resposta, porém o contato do usuário foi deletado.
+
+<h2 align='center'> Possíveis Erros </h2>
+
+``DELETE -> /contacts/<uuid:contact_id>/ - FORMATO DA REQUISIÇÃO - Outro usuário sem ser o dono``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o contato que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 404 - NOT FOUND``
+
+```json
+{
+	"message": "Contact not found."
+}
+```
+
+<br>
+
+``DELETE -> /contacts/<uuid:contact_id>/ - FORMATO DA REQUISIÇÃO - Sem token``
+
+Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o contato que está no parâmetro da rota.
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "Invalid token"
+}
+```
+
+##
+Elaborado por Jorge Kimura
