@@ -126,7 +126,7 @@ Sem corpo da requisição - A aplicação ficará responsável em buscar todos o
 ]
 ```
 
-### Endpoints que precisam de autenticação
+### Endpoints que precisam de autenticação e apenas o próprio usuário pode acessar
 Rotas que necessitam de autorização deve ser informado no cabeçalho da requisição o campo "Authorization", dessa forma: 
 
 > Authorization: Bearer {token}
@@ -166,7 +166,7 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 
 <h2 align='center'> Possíveis Erros </h2>
 
-``GET -> api/users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Outro usuário``
+``GET -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Outro usuário``
 
 Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
 
@@ -180,7 +180,7 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 
 <br>
 
-``GET -> api/users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Sem token``
+``GET -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Sem token``
 
 Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
 
@@ -192,5 +192,66 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 }
 ```
 
+<h2 align='center'> Atualização de Usuário </h2>
+
+``
+PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO
+``
+
+```json
+{
+	"email": "lorenzo@mail.com"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 200 - OK``
+
+```json
+{
+	"id": "28cb0a18-6959-4dc4-abeb-b7173329aa46",
+	"full_name": "Lorenzo Kimura",
+	"email": "lorenzo@mail.com",
+	"telephone": "41912345678",
+	"created_at": "2023-02-01T13:08:27.629Z",
+	"updated_at": "2023-02-02T00:23:38.232Z",
+	"contacts": []
+}
+```
+
+<h2 align='center'> Possíveis Erros </h2>
+
+``PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Outro usuário``
+
+```json
+{
+	"email": "lorenzo@mail.com"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "You don't have permission."
+}
+```
+
+<br>
+
+``PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Sem token``
+
+```json
+{
+	"email": "lorenzo@mail.com"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 401 - UNAUTHORIZED``
+
+```json
+{
+	"message": "Invalid token"
+}
+```
 
 
