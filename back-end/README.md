@@ -254,6 +254,26 @@ PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO
 }
 ```
 
+<br>
+
+``
+PATCH -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO - Faltando campos
+``
+
+```json
+{
+	"batata": "123"
+}
+```
+
+``FORMATO DA RESPOSTA - STATUS 400 - BAD REQUEST``
+
+```json
+{
+	"message": "Some data is missings"
+}
+```
+
 <h2 align = "center"> Deleção de Usuário </h2>
 
 ``DELETE -> /users/<uuid:user_id>/ - FORMATO DA REQUISIÇÃO``
