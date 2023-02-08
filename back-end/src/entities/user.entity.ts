@@ -28,7 +28,7 @@ export class User {
     @UpdateDateColumn()
     updated_at: Date;
 
-    @OneToMany(() => Contact, contact => contact.user, { eager: true })
+    @OneToMany(() => Contact, contact => contact.user, { eager: true, cascade: true })
     contacts: Contact[]
 
 }
