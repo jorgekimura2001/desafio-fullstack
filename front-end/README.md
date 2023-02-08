@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Desafio Full-Stack 💪
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é o frontend do desafio Full-Stack do 6° Módulo da Kenzie Academy Brasil - Uma plataforma que permite o cadastramento de clientes que poderá conter muitos contatos associados.
 
-## Available Scripts
+Para inciar este projeto, é necessário instalar as dependências, que foram utilizadas na elaboração do projeto. Portanto utilize o comando abaixo para instalar tais dependências:
+````
+yarn install
+````
 
-In the project directory, you can run:
+**Atenção:** é necessário utilizar o `yarn` pois esse projeto foi iniciado com esse gerenciador de pacotes.
 
-### `yarn start`
+Para verificar se já possui o gerenciador yarn instalado utilize o seguinte comando:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+````
+yarn --version
+````
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Caso não possua o yarn instalado, utilize o comando abaixo para instalar globalmente na sua máquina:
 
-### `yarn test`
+````
+npm install --global yarn
+````
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# **Rodando a aplicação**
+Digite o seguinte comando no terminal para rodar a aplicação em sua máquina:
 
-### `yarn build`
+````
+yarn start
+````
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Rotas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A aplicação possui 4 rotas sendo:
+<ul>
+  <li>/login - Login de usuários que já possuem uma conta </li>
+  <li>/registration - Cadastro de usuários </li>
+  <li>/dashboard - Página que contém todos os contatos do usuário logado </li>
+  <li>/profile - Página que o usuário pode editar suas informações ou deletar sua conta </li>
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Qualquer rota fora dessas redireciona o usuário à página de login.
 
-### `yarn eject`
+## Observações
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Criação de usuário
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para criação de usuários deve se seguir a seguinte forma:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+  Nome completo: De preferência primeiro nome e o sobrenome,
+  Telefone: DD9XXXXXXXX,
+  Email: example@example.com - Único,
+  Senha: Números e Letras maiúsculas e minúsculas e Caracteres Especiais e No mínimo 6 e no máximo 15 
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Login de usuários
 
-## Learn More
+Digitar corretamente os campos e clicar no botão que será gerado um token e as informações do usuário exceto a senha.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Adição de contatos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para adição de contatos deve se seguir a seguinte forma:
+
+```
+  Nome completo: De preferência primeiro nome e o sobrenome,
+  Telefone: DD9XXXXXXXX,
+  Email: example@example.com,
+```
+
+### Edição de contatos
+
+Para edição de contatos deve se seguir a seguinte forma, todos os campos são opcionais:
+
+```
+  Nome completo: De preferência primeiro nome e o sobrenome,
+  Telefone: DD9XXXXXXXX,
+  Email: example@example.com,
+```
+
+### Deleção de contatos 
+
+Ao clicar no botão já deleta o contato.
+
+### Edição de usuários
+
+Para edição de usuários deve se seguir a seguinte forma, todos os campos são opcionais:
+
+```
+  Nome completo: De preferência primeiro nome e o sobrenome,
+  Telefone: DD9XXXXXXXX,
+  Email: example@example.com - Único,
+  Senha: Números e Letras maiúsculas e minúsculas e Caracteres Especiais e No mínimo 6 e no máximo 15,
+```
+
+### Deleção de contatos 
+
+Ao clicar no botão já deleta o usuário e o redireciona para à página de login.
+
+##
+
+Elaborado com ❤ por Jorge Kimura
