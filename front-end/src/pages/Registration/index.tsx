@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { RxEyeOpen, RxEyeClosed } from 'react-icons/rx'
 import { useUser } from '../../context/UserContext';
+import { Container, ContainerForm } from './style';
 
 const Registration = () => {
 
@@ -36,52 +37,55 @@ const Registration = () => {
       }
     
     return(
-        <div>
+        <Container>
             <div>
-                <button onClick={() => navigate('/login', {replace: true})}>Voltar</button>
+                <button className='btn-handle-back-page' onClick={() => navigate('/login', {replace: true})}>Voltar</button>
             </div>
-            <div>
-                <span>Criar uma conta</span>
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="full_name">Nome Completo</label>
-                <input
-                type="text"
-                id="full_name"
-                placeholder="Digite seu nome completo"
-                {...register("full_name")}
-                />
-                <p>{errors.full_name?.message}</p>
-
-                <label htmlFor="telephone">Telefone</label>
-                <input 
-                type="text" 
-                id='telephone'
-                placeholder='Digite seu telefone (celular)'
-                {...register('telephone')}
-                />
-                <p>{errors.telephone?.message}</p>
-
-                <label htmlFor="email">Email</label>
-                <input
-                type="text"
-                id="email"
-                placeholder="Digite seu email"
-                {...register("email")}
-                />
-                <p>{errors.email?.message}</p>
-
-
-                <label htmlFor="password">Senha</label>
+            <ContainerForm>
                 <div>
-                    <input type={isClick ? 'text' : 'password'} id="password" placeholder="Digite uma senha" {...register("password")}/>
-                    <button onClick={() => setIsClick(!isClick)}>{isClick ? <RxEyeClosed/> : <RxEyeOpen/>}</button>
+                    <span>Criar uma conta</span>
                 </div>
-                <p>{errors.password?.message}</p>
 
-                <button type='submit'>Cadastrar-se</button>
-            </form>
-        </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <label htmlFor="full_name">Nome Completo</label>
+                    <input
+                    type="text"
+                    id="full_name"
+                    placeholder="Digite seu nome completo"
+                    {...register("full_name")}
+                    />
+                    <p>{errors.full_name?.message}</p>
+
+                    <label htmlFor="telephone">Telefone</label>
+                    <input 
+                    type="text" 
+                    id='telephone'
+                    placeholder='Digite seu telefone (celular)'
+                    {...register('telephone')}
+                    />
+                    <p>{errors.telephone?.message}</p>
+
+                    <label htmlFor="email">Email</label>
+                    <input
+                    type="text"
+                    id="email"
+                    placeholder="Digite seu email"
+                    {...register("email")}
+                    />
+                    <p>{errors.email?.message}</p>
+
+
+                    <label htmlFor="password">Senha</label>
+                    <div className="password-container">
+                        <input type={isClick ? 'text' : 'password'} id="password" placeholder="Digite uma senha" {...register("password")}/>
+                        <button className='btn-showpassword' type="button" onClick={() => setIsClick(!isClick)}>{isClick ? <RxEyeClosed/> : <RxEyeOpen/>}</button>
+                    </div>
+                    <p>{errors.password?.message}</p>
+
+                    <button type='submit'>Cadastrar-se</button>
+                </form>
+            </ContainerForm>
+        </Container>
     )
 }
 

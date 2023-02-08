@@ -1,19 +1,42 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background-color: black;
     width: 100%;
     height: 100vh;
     padding: 0 12px;
+   
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     color: var(--color-grey-0);
+    background-color: var(--color-grey-4);
+
+    .btn-handle-back-page{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: var(--color-grey-2);
+        color: var(--color-grey-0);
+
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 28px;
+
+        height: 40px;
+        width: auto;
+        padding: 6px 16px;
+
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
 `
 
-export const ContainerLogin = styled.div`
-    min-height: 402px;
+export const ContainerForm = styled.div`
+    height: 500px;
     width: 296px;
     background-color: var(--color-grey-3);
     display: flex;
@@ -45,7 +68,7 @@ export const ContainerLogin = styled.div`
         }
         label{
             font-size: 10px;
-            margin-bottom: 18px;
+            margin-bottom: 10px;
         }
         input{
             background-color: var(--color-grey-2);
@@ -95,36 +118,5 @@ export const ContainerLogin = styled.div`
             background-color: var(--color-primary);
             color: var(--color-grey-0);
         }
-    }
-`
-
-export const ContainerRegister = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    span{
-        color: var(--color-grey-1);
-        font-weight: 600;
-        font-size: 9.5px;
-    }
-    button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 12px;
-        font-weight: 500;
-
-        width: 80%;
-        height: 38.5px;
-
-        border: 1.2182px solid var(--color-grey-1);
-        border-radius: 4.06066px;
-
-        background-color: var(--color-grey-1);
-        color: var(--color-grey-0);
     }
 `
