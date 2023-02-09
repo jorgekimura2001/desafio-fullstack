@@ -22,7 +22,7 @@ export class Contact {
     @UpdateDateColumn()
     updated_at: Date;
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => User, {cascade: true})
     user: User
 
 }

@@ -1,6 +1,10 @@
 import { DataSource } from "typeorm"
 import 'dotenv/config'
 import "reflect-metadata"
+import { User } from "./entities/user.entity"
+import { Contact } from "./entities/contact.entity"
+import { createTables1675962084997 } from './migrations/1675962084997-createTables'
+
 
 const AppDataSource = new DataSource(
     process.env.NODE_ENV === "test" ?
@@ -19,8 +23,8 @@ const AppDataSource = new DataSource(
       database: process.env.POSTGRES_DB,
       logging: true,
       synchronize: false,
-      entities: ['src/entities/*.ts'],
-      migrations: ['src/migrations/*.ts']
+      entities: [User, Contact],
+      migrations: [createTables1675962084997]
     }
 )
 
