@@ -22,6 +22,12 @@ Caso não possua o yarn instalado, utilize o comando abaixo para instalar global
 npm install --global yarn
 ````
 
+# **Criando o Banco de Dados**
+Para funcionar corretamente a aplicação é necesário criar o arquivo .env seguindo o exemplo encontrado no .env.example e rodar o seguinte comando no terminal para criar o banco de dados:
+````
+yarn typeorm migration:run -d src/data-source.ts
+````
+
 # **Sobre os testes**
 
 Essa aplicação possui testes, que serão utilizados para validar, se todas as regras de negócio foram aplicadas de maneira correta.
