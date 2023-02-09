@@ -1,9 +1,6 @@
 import { api } from "../../services/api";
 import {
   createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
   useContext,
   useEffect,
   useState,
@@ -38,7 +35,6 @@ const UserProvider = ({ children }: IChildren) => {
   useEffect(() => {
     const token = localStorage.getItem("@userToken");
     const id = localStorage.getItem("@userId");
-    // setLoading(true)
     const listUser = async () => {
       if (token) {
         try {

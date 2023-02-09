@@ -46,12 +46,34 @@ export const ContainerForm = styled.div`
     box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
     border-radius: 3.20867px;
 
+    .button__remove-user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: var(--color-grey-1);
+        color: var(--color-grey-0);
+
+        padding: 0px 22.3336px;
+        margin: 10px auto;
+        width: 90%;
+        height: 35.5px;
+
+        border: 0.9772px solid var(--color-grey-1);
+        border-radius: 4.06066px;
+
+        font-weight: 500;
+        font-size: 12.8347px;
+        line-height: 21px;
+  }
+
     span{
         font-weight: 700;
         font-size: 14.439px;
         line-height: 22px;
     }
     form {
+        width: 90%;
         display: flex;
         flex-direction: column;
         .password-container{

@@ -1,5 +1,5 @@
 import { useContact } from "../../context/ContactContext"
-import { IContact, IContactCreate, IModalAddProps } from "../../interfaces"
+import { IContactCreate, IModalAddProps } from "../../interfaces"
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup'

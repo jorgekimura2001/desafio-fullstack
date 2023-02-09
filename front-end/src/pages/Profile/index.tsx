@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useUser } from "../../context/UserContext"
 import { Container, ContainerForm } from "./style"
@@ -6,11 +5,8 @@ import * as yup from 'yup'
 import { useForm } from "react-hook-form"
 import {yupResolver} from '@hookform/resolvers/yup'
 import { IRegistration } from "../../interfaces"
-import { RxEyeOpen, RxEyeClosed } from 'react-icons/rx'
 
 const Profile = () => {
-
-    const [isClick, setIsClick] = useState(false)
 
     const {user, loading, updateUser, removeUser} = useUser()
 

@@ -1,15 +1,10 @@
 import { api } from "../../services/api";
 import {
   createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
   useContext,
-  useEffect,
   useState,
 } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import { IChildren, IContact, IContactCreate, IContactData, IContactUp } from "../../interfaces";
 
 export const ContactContext = createContext<IContactData>({} as IContactData);
@@ -29,7 +24,7 @@ const ContactProvider = ({ children }: IChildren) => {
         try {
             const contactAdded = await api.post('contacts', data)
             setLoading(false)
-            toast.success('Contato adicionada com sucesso!', {
+            toast.success('Contato adicionado com sucesso!', {
                 position: "top-right",
                 autoClose: 1000,
                 hideProgressBar: false,
