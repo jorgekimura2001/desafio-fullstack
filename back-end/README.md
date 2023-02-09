@@ -80,12 +80,18 @@ yarn test ./scr/__tests__/integration/<subpasta>/<arquivo>
 yarn test -t <describe ou test específico envolto em aspas>
 ````
 
+# **Rodando a aplicação**
+
+Digite o seguinte comando no terminal para rodar a aplicação em sua máquina:
+
+````
+yarn dev
+````
+
 
 # Endpoints
 
-A API tem um total de 14 endpoints, sendo em volta principalmente do usuário - podendo cadastrar seu perfil e adicionar seu contatos:
-
-<!-- O url base da API é https://techquiz-api.herokuapp.com -->
+A API tem um total de 11 endpoints, sendo em volta principalmente do usuário - podendo listar, cadastrar, editar ou excluir seu perfil e listar, adicionar, editar ou excluir seu contatos:
 
 ### Endpoints que não precisam de autenticação
 Não é necessário passar um token para realizar uma requisição bem sucedida nos seguintes endpoints:
